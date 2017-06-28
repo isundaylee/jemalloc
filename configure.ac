@@ -1455,10 +1455,6 @@ if test "x$abi" != "xpecoff" ; then
   have_pthread="1"
   dnl Check if we have dlsym support.
   have_dlsym="1"
-  AC_CHECK_HEADERS([dlfcn.h],
-    AC_CHECK_FUNC([dlsym], [],
-      [AC_CHECK_LIB([dl], [dlsym], [LIBS="$LIBS -ldl"], [have_dlsym="0"])]),
-    [have_dlsym="0"])
   if test "x$have_dlsym" = "x1" ; then
     AC_DEFINE([JEMALLOC_HAVE_DLSYM], [ ])
   fi
